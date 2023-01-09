@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_700"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="380dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="logo main menu"
+        android:src="@drawable/logo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginBottom="20dp" />
+
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/cardEvenements"
+        android:layout_width="245dp"
+
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardAnimaux">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="imageevenement"
+            android:src="@drawable/evenements2"
+
+            >
+
+        </ImageView>
+
+        <TextView
+            style="@style/cardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Évenements" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/cardEspeces"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/lightTeal"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardEnclos">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="imageevenement"
+            android:src="@drawable/especes2">
+
+        </ImageView>
+
+        <TextView
+            style="@style/cardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Espèces" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardEnclos"
+        android:layout_width="245dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="imageevenement"
+            android:src="@drawable/enclos2" />
+
+        <TextView
+            style="@style/cardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Enclos" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/cardAnimaux"
+        android:layout_width="245dp"
+
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="#e0f2f1"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardEspeces">
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="imageevenement"
+            android:src="@drawable/animaux2"
+
+            >
+
+        </ImageView>
+
+        <TextView
+            style="@style/cardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Animaux" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:id="@+id/cardAction"
+        android:layout_width="248dp"
+
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="#e0f2f1"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardEvenements">
+
+
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="imageaction"
+            android:src="@drawable/action2"
+
+            >
+
+        </ImageView>
+
+        <TextView
+            style="@style/cardTitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Actions" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

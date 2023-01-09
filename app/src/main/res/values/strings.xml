@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ZooTycoonMobile</string>
+    <string name="zone">Zone</string>
+    <string name="btn_add">btn add</string>
+    <string name="btn_retour">btn retour</string>
+    <string name="btn_home">btn home</string>
+    <string name="titleu_menu_home">Acceuil</string>
+    <string name="titleu_menu_back">Retour</string>
+    <string name="titleu_menu_add">Ajouter</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
