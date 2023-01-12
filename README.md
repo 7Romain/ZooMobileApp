@@ -6,7 +6,6 @@ Partie Mobile du projet Zoo pour la formation AFPA CDA 2022-2023 @ Beaumont
 
 ## 🧐 Features
 
-- Consultrer la base de données
 - Créer des actions
 - Consulter les actions
 
