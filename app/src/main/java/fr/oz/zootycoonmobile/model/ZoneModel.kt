@@ -1,4 +1,7 @@
 package fr.oz.zootycoonmobile.model
 
-class ZoneModel {
-}
+data class ZoneModel(
+    var id: String,
+    var nom: String
+
+)

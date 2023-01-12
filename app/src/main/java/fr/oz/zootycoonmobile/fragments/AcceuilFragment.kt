@@ -24,7 +24,7 @@ class AcceuilFragment(private val context: MainActivity) : Fragment() {
         val especes = view.findViewById<CardView>(R.id.cardEspeces)
         val animaux = view.findViewById<CardView>(R.id.cardAnimaux)
         val evenements = view.findViewById<CardView>(R.id.cardEvenements)
-        val actions = view.findViewById<CardView>(R.id.cardAction)
+        actions = view.findViewById<CardView>(R.id.cardAction)
 
         actions.setOnClickListener {
 //            val intentToActionsActivity: Intent = Intent(context, ActionsActivity::class.java)

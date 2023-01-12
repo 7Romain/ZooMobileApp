@@ -2,7 +2,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="12dp"
     tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextObservations"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEspece"
+        android:layout_alignStart="@+id/in_time"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/obsLabel2"
+        style="@style/titleChamps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/especeLabel"
+        android:layout_alignBottom="@+id/editTextObservations"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="29dp"
+        android:text="Tâche" />
+
+    <EditText
+        android:id="@+id/editTextEspece"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextAnimal"
+        android:layout_alignStart="@+id/in_time"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="13dp" />
+
+    <Button
+        android:id="@+id/especeLabel"
+        style="@style/buttonStyle2"
+
+
+        android:layout_alignBottom="@+id/editTextEspece"
+        android:layout_alignParentStart="true"
+
+
+        android:layout_marginStart="0dp"
+
+        android:text="Espèce" />
+
+    <EditText
+        android:id="@+id/editTextAnimal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextEnclos"
+        android:layout_alignStart="@+id/in_time"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="13dp" />
+
+    <Button
+        android:id="@+id/animalLabel"
+        style="@style/buttonStyle2"
+
+        android:layout_alignBottom="@+id/editTextAnimal"
+        android:layout_alignParentStart="true"
+
+        android:text="Animal" />
 
     <TextView
         style="@style/ActivityTitleStyle"
@@ -14,24 +75,17 @@
         android:id="@+id/in_date"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-
         android:layout_alignParentEnd="true"
+
         android:layout_marginTop="82dp"
-        android:layout_marginEnd="89dp" />
+        android:layout_marginEnd="67dp" />
 
     <Button
         android:id="@+id/btn_date"
         style="@style/buttonStyle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         android:layout_alignBottom="@+id/in_date"
-
         android:layout_alignParentStart="true"
-
-
-        android:layout_toStartOf="@+id/in_date"
-
-
         android:text="DATE" />
 
     <EditText
@@ -41,23 +95,67 @@
         android:layout_below="@+id/in_date"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="89dp" />
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="12dp" />
 
     <Button
         android:id="@+id/btn_time"
         style="@style/buttonStyle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
         android:layout_alignBottom="@+id/in_time"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp"
+
+        android:text="HEURE" />
+
+    <Button
+        android:id="@+id/enclosLabel"
+        style="@style/buttonStyle2"
+
+        android:layout_below="@+id/btn_time"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="0dp"
+        android:text="Enclos" />
+
+    <EditText
+        android:id="@+id/editTextEnclos"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/in_time"
+        android:layout_alignBottom="@+id/enclosLabel"
+        android:layout_marginStart="0dp"
+
+
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnValider"
+        style="@style/buttonStyle2"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/editTextObservations"
 
 
         android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
 
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="0dp"
-        android:layout_toStartOf="@+id/in_time"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="148dp"
+        android:text="Valider" />
 
-        android:text="HEURE" />
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scannerView"
+        android:layout_width="376dp"
+        android:layout_height="198dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="6dp" />
 
 </RelativeLayout>

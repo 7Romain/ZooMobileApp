@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:layout_margin="5dp"
         android:contentDescription="create Event"
-        android:src="@drawable/gauche" />
+        android:src="@drawable/gauche4" />
 
     <ImageView
         android:layout_width="150dp"

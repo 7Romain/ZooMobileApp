@@ -1,60 +1,134 @@
 package fr.oz.zootycoonmobile.fragments
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.budiyev.android.codescanner.*
+import fr.oz.zootycoonmobile.MainActivity
 import fr.oz.zootycoonmobile.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ScanActionsList.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ScanActionsList : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ScanActionsList(private val context: MainActivity, filtre: String) : Fragment() {
+    private lateinit var qrscanner: CodeScannerView
+    lateinit var codeScanner: CodeScanner
+    lateinit var labelFiltre: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+    var destination = "tous"
+    val filtrerPar = filtre
+    val MY_CAMERA_PERMISSION_REQUEST = 1111
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_scan_actions_list, container, false)
+        var affichage = "Veuillez scanner le QR Code de "
+        if (filtrerPar == "zone") affichage = affichage + "la $filtrerPar." else affichage =
+            affichage + "l'$filtrerPar."
+
+
+
+        labelFiltre = view.findViewById(R.id.filtrerParLabel)
+        labelFiltre.setText(affichage)
+        qrscanner = view.findViewById(R.id.scannerView)
+        codeScanner = CodeScanner(context, qrscanner)
+        openScanner()
+        return view
+    }
+
+
+    private fun openScanner() {
+
+        codeScanner.camera = CodeScanner.CAMERA_BACK
+        codeScanner.formats = CodeScanner.ALL_FORMATS
+        codeScanner.autoFocusMode = AutoFocusMode.SAFE
+        codeScanner.scanMode = ScanMode.SINGLE
+        codeScanner.isAutoFocusEnabled = true
+        codeScanner.isFlashEnabled = false
+
+        codeScanner.decodeCallback = DecodeCallback {
+            destination = it.text
+
+            codeScanner.stopPreview()
+            codeScanner.releaseResources()
+            qrscanner.visibility = View.INVISIBLE
+            loadFragment(ActionsListFragment(context, filtrerPar, destination))
+
+        }
+        codeScanner.errorCallback = ErrorCallback {
+            Toast.makeText(
+                context,
+                "Erreur lors de la tentative de scan",
+                Toast.LENGTH_LONG
+            ).show()
+            codeScanner.stopPreview()
+            codeScanner.releaseResources()
+            qrscanner.visibility = View.INVISIBLE
+        }
+
+        checkPermission()
+    }
+
+    fun checkPermission() {
+        if (ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                context,
+                arrayOf(Manifest.permission.CAMERA),
+                MY_CAMERA_PERMISSION_REQUEST
+            )
+        } else {
+            codeScanner.startPreview()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scan_actions_list, container, false)
+    override fun onResume() {
+        super.onResume()
+        codeScanner.startPreview()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ScanActionsList.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ScanActionsList().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onPause() {
+        super.onPause()
+        codeScanner.releaseResources()
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == MY_CAMERA_PERMISSION_REQUEST && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            codeScanner.startPreview()
+        } else {
+            Toast.makeText(
+                context,
+                "Impossible de scanner sans l'autorisation d'utiliser la caméra",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = context.supportFragmentManager.beginTransaction()
+
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+
+    }
+
 }

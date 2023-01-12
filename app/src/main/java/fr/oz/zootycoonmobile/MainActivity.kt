@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fr.oz.zootycoonmobile.fragments.AcceuilFragment
-import fr.oz.zootycoonmobile.fragments.HomeFragment
+import fr.oz.zootycoonmobile.fragments.CreerActionFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         loadFragment(AcceuilFragment(context = this))
 
         val navigationView = findViewById<BottomNavigationView>(R.id.navBar)
+        navigationView.getMenu().getItem(1).setChecked(true);
         navigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.home_page -> {
@@ -24,11 +25,11 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.add_page -> {
-                    loadFragment(HomeFragment(this))
+                    loadFragment(CreerActionFragment(this))
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.back_page -> {
-                    loadFragment(HomeFragment(this))
+                    this.supportFragmentManager.popBackStack()
                     return@setOnNavigationItemSelectedListener true
                 }
                 else -> false

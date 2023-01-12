@@ -22,12 +22,12 @@ class LobbyActionsFragment(private val context: MainActivity) : Fragment() {
     ): View? {
         val supportFragmentManager = parentFragmentManager
         val view = inflater.inflate(R.layout.fragment_lobby_actions, container, false)
-        val actionsList = view?.findViewById<CardView>(R.id.actionsList)
-        val actionsCreate = view?.findViewById<CardView>(R.id.actionsCreate)
+        val actionsList = view?.findViewById<CardView>(R.id.parAnimal)
+        val actionsCreate = view?.findViewById<CardView>(R.id.parZone)
         actionsList?.setOnClickListener {
             val transaction = supportFragmentManager.beginTransaction()
 
-            transaction.replace(R.id.fragment_container, HomeFragment(context))
+            transaction.replace(R.id.fragment_container, ChoixActionsListFragment(context))
             transaction.addToBackStack(null)
             transaction.commit()
         }

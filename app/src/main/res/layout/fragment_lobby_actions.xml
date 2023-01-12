@@ -10,13 +10,14 @@
 
     <androidx.cardview.widget.CardView
 
-        android:id="@+id/actionsList"
+        android:id="@+id/parAnimal"
         android:layout_width="245dp"
 
         android:layout_height="100dp"
+        android:layout_marginBottom="200dp"
         app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="20dp"
 
+        app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,10 +47,11 @@
 
     <androidx.cardview.widget.CardView
 
-        android:id="@+id/actionsCreate"
+        android:id="@+id/parZone"
         android:layout_width="245dp"
-
         android:layout_height="100dp"
+
+        android:layout_marginTop="200dp"
         app:cardBackgroundColor="@color/black"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
