@@ -32,37 +32,3 @@
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <!--<ImageButton-->
-    <!--android:layout_width="81dp"-->
-
-    <!--android:layout_height="76dp"-->
-    <!--android:background="@color/teal"-->
-    <!--android:src="@drawable/ic_home"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toStartOf="@+id/imageButton2"-->
-    <!--app:layout_constraintStart_toEndOf="@+id/imageButton"-->
-    <!--app:tint="@color/gold" />-->
-
-    <!--<ImageButton-->
-    <!--android:id="@+id/imageButton2"-->
-
-    <!--android:layout_width="81dp"-->
-    <!--android:layout_height="76dp"-->
-    <!--android:layout_marginEnd="28dp"-->
-    <!--android:background="@color/teal"-->
-    <!--android:src="@drawable/add"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:tint="@color/gold" />-->
-
-    <!--<ImageButton-->
-
-    <!--android:id="@+id/imageButton"-->
-    <!--android:layout_width="81dp"-->
-    <!--android:layout_height="76dp"-->
-    <!--android:layout_marginStart="28dp"-->
-    <!--android:background="@color/teal"-->
-    <!--android:src="@drawable/backarrow"-->
-    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:tint="@color/gold" />-->

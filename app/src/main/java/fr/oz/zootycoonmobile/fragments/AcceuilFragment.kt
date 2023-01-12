@@ -27,8 +27,7 @@ class AcceuilFragment(private val context: MainActivity) : Fragment() {
         actions = view.findViewById<CardView>(R.id.cardAction)
 
         actions.setOnClickListener {
-//            val intentToActionsActivity: Intent = Intent(context, ActionsActivity::class.java)
-//            startActivity(intentToActionsActivity)
+
             val transaction = supportFragmentManager.beginTransaction()
 
             transaction.replace(R.id.fragment_container, LobbyActionsFragment(context))
@@ -39,18 +38,6 @@ class AcceuilFragment(private val context: MainActivity) : Fragment() {
 
         return view
     }
-
-//    fun onClick(view: View) {
-//        lateinit var i: Intent
-//        when (view.getId()) {
-//            actions.id -> {
-//
-//
-//            }
-//
-//        }
-//
-//    }
 
 
 }

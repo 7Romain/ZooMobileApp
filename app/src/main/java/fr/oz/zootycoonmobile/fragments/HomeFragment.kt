@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.JsonObject
 import fr.oz.zootycoonmobile.API
 import fr.oz.zootycoonmobile.MainActivity
 import fr.oz.zootycoonmobile.R
@@ -48,14 +47,9 @@ class HomeFragment
             ) {
                 if (response.isSuccessful) {
                     val actionList = response.body()!!
-                    var actionListFiltre: List<JsonObject>
+
                     horizontalRecyclerView.adapter = ActionAdapter(context, actionList)
-//                    when(destination){
-//                        "all" -> actionListFiltre = actionList
-//                        "zone" ->actionListFiltre = actionList.filter{ it as JsonObject.enclos.zone.id == filtre}
-//
-//                        "enclos"->
-//                            "animal"->
+
 
                 }
             }

@@ -14,14 +14,12 @@ import kotlin.properties.Delegates
 class ActionAdapter(
     private val context: MainActivity,
     private val actionList: List<ActionModelList>
-//    private val layoutId: Int
 ) : RecyclerView.Adapter<ActionAdapter.ViewHolder>() {
-    //    var actionListJson: List<JsonObject> = actionList as List<JsonObject>
     var nombre by Delegates.notNull<Int>()
 
-    //    lateinit var actionList: List<JsonObject>
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        //        val actionList: List<JsonObject> = initJson()
+
         val actionObservations: TextView? = view.findViewById(R.id.obsText)
         val actionDate: TextView? = view.findViewById(R.id.dateText)
         val actionEspece: TextView? = view.findViewById(R.id.especeText)
@@ -32,7 +30,6 @@ class ActionAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        val actionList: List<JsonObject> = initJson()
         val view = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_action, parent, false)
@@ -40,18 +37,18 @@ class ActionAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        lateinit var auteur: String
-        lateinit var nomEnclos: String
-        lateinit var nomZone: String
-        lateinit var espece: String
-        lateinit var animal: String
-        lateinit var obs: String
-        lateinit var annee: String
-        lateinit var mois: String
-        lateinit var jour: String
-        lateinit var heure: String
-        lateinit var min: String
-        lateinit var moment: String
+        var auteur = " "
+        var nomEnclos = " "
+        var nomZone = " "
+        var espece = " "
+        var animal = " "
+        var obs = " "
+        var annee = " "
+        var mois = " "
+        var jour = " "
+        var heure = " "
+        var min = " "
+        var moment = " "
         fun miseEnPage(nombre: Int): String =
             if (nombre <= 9) "0" + nombre.toString() else nombre.toString()
 
@@ -81,27 +78,23 @@ class ActionAdapter(
             val nom = currentAction.personnel.nom
             val prenom = currentAction.personnel.prenom
             auteur = "$prenom $nom"
-        } else {
-            auteur = " "
         }
+
 
         if (currentAction.enclos != null) {
 
             nomEnclos = currentAction.enclos.nom
             nomZone = currentAction.enclos.zone.nom
-        } else {
-            nomEnclos = " "
-            nomZone = " "
         }
         if (!currentAction.idEspece.isNullOrBlank())
-            espece = currentAction.idEspece else espece = " "
+            espece = currentAction.idEspece
 
         if (!currentAction.idAnimal.isNullOrBlank()) animal =
-            currentAction.idAnimal else animal = " "
+            currentAction.idAnimal
 
 
         if (!currentAction.observations.isNullOrBlank()) obs =
-            currentAction.observations else obs = " "
+            currentAction.observations
 
         if (currentAction.datePrevue.size > 0) {
             annee = currentAction.datePrevue.get(0).toString()
@@ -112,8 +105,6 @@ class ActionAdapter(
             min = currentAction.datePrevue.get(4).toString()
             moment = "$jour/$mois/$annee  $heure:$min"
 
-        } else {
-            moment = " "
         }
 
         holder.actionAnimal?.text = capitalize(removeQuote(animal))

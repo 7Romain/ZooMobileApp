@@ -11,7 +11,6 @@ import retrofit2.Response
 
 class MainViewModel(private val repositoryAction: ActionRepository) : ViewModel() {
 
-    //    val myResponse: MutableLiveData<ActionModel> = MutableLiveData()
     val myResponse: MutableLiveData<List<ActionModelList>> = MutableLiveData()
 
     val myPushResponse: MutableLiveData<Response<ActionModel>> = MutableLiveData()

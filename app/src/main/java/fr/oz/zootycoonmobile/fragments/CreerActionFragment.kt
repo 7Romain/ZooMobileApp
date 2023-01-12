@@ -56,15 +56,6 @@ class CreerActionFragment(private val context: MainActivity) : Fragment() {
     val MY_CAMERA_PERMISSION_REQUEST = 1111
 
 
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = context.supportFragmentManager.beginTransaction()
-
-        transaction.replace(R.id.fragment_container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-
-    }
-
     fun View.hideKeyboard() {
         val inputManager =
             context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
